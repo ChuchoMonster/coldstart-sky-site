@@ -1,0 +1,239 @@
+/* ColdStart — the scroll-flight engine styles */
+
+/* ---------- Stage (the camera) ---------- */
+.stage {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  perspective: var(--perspective);
+  perspective-origin: 50% 50%;
+}
+
+/* ---------- Sky ---------- */
+.sky { position: absolute; inset: 0; }
+
+.sky-gradient {
+  position: absolute;
+  inset: -20% 0;
+  background: linear-gradient(
+    to bottom,
+    var(--sky-zenith) 0%,
+    var(--space-deep) 28%,
+    var(--sky-mid) 55%,
+    var(--electric) 74%,
+    var(--sky-low) 92%,
+    var(--cloud) 100%
+  );
+  will-change: transform;
+}
+
+.sky-band {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+.sky-band[data-active="1"] { opacity: 1; }
+
+/* Sun flare — appears in the near-space chapter only */
+.flare {
+  position: absolute;
+  right: -12vw;
+  top: 18vh;
+  width: 44vw;
+  height: 44vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--flare) 0%, rgba(255, 194, 75, 0.18) 32%, transparent 65%);
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+/* Atmospheric haze over everything but under UI */
+.haze {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--horizon), transparent 60%);
+  opacity: 0.12;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+/* ---------- Scene + modules ---------- */
+.scene {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.module {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--module-w);
+  padding: clamp(1.6rem, 3.2vw, 2.8rem);
+  border-radius: 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 24px 80px rgba(2, 8, 20, 0.45), 0 0 60px var(--card-glow);
+  visibility: hidden; /* engine reveals; static branch overrides */
+  will-change: transform, opacity;
+}
+
+.module .eyebrow { display: block; margin-bottom: 0.9rem; }
+.module h2 { margin-bottom: 0.7rem; color: var(--text-hi); }
+.module p { color: var(--text-mid); }
+.module .arrow-list { margin-top: 0.9rem; }
+
+/* Fog veil — distance haze, opacity driven by --fog custom prop */
+.module::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--horizon);
+  opacity: var(--fog, 0);
+  pointer-events: none;
+}
+
+/* Hero floats bare in the sky — no card */
+.module--hero {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-align: center;
+  width: min(880px, 92vw);
+}
+.module--hero::after { display: none; }
+.module--hero h1 { margin: 0.8rem 0 1.1rem; }
+.module--hero p { margin: 0 auto; }
+
+.scroll-cue {
+  position: absolute;
+  bottom: 4.5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  animation: cue-bob 2.4s ease-in-out infinite;
+}
+@keyframes cue-bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ---------- Altimeter ---------- */
+.altimeter {
+  position: fixed;
+  right: clamp(0.8rem, 2.5vw, 2.2rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.1rem;
+}
+.altimeter-readout {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--text-mid);
+  font-variant-numeric: tabular-nums;
+}
+.altimeter-ticks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  list-style: none;
+}
+.altimeter-ticks button {
+  display: block;
+  width: 22px;
+  height: 3px;
+  border: none;
+  border-radius: 2px;
+  background: var(--text-dim);
+  cursor: pointer;
+  transition: background 0.25s, width 0.25s;
+  padding: 0;
+}
+.altimeter-ticks button[aria-current="true"] {
+  background: var(--accent);
+  width: 34px;
+}
+.altimeter-ticks button:hover { background: var(--accent); }
+
+/* Mobile progress bar replaces the rail */
+.progressbar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  z-index: 60;
+  display: none;
+}
+
+/* ---------- Scroll track (the fuel) ---------- */
+.journey-track { position: relative; width: 100%; }
+
+/* ====================================================
+   Static branch — mobile and prefers-reduced-motion.
+   html.is-static is set by journey.js via gsap.matchMedia
+   ==================================================== */
+html.is-static .stage {
+  position: relative;
+  inset: auto;
+  overflow: visible;
+  perspective: none;
+  min-height: 100svh;
+}
+html.is-static .sky {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+html.is-static .sky-band { display: none; }
+html.is-static .scene {
+  position: relative;
+  inset: auto;
+  transform-style: flat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(3rem, 9vh, 6rem);
+  padding: 18vh 5vw 14vh;
+}
+html.is-static .module {
+  position: relative;
+  top: auto;
+  left: auto;
+  visibility: visible;
+  transform: none !important;
+  opacity: 1;
+  will-change: auto;
+}
+html.is-static .module::after { display: none; }
+html.is-static .journey-track { display: none; }
+html.is-static .altimeter { display: none; }
+html.is-static .scroll-cue { display: none; }
+html.is-static .haze, html.is-static .flare { display: none; }
+html.is-static .progressbar { display: block; }
+
+html.is-static .topbar {
+  background: linear-gradient(to bottom, var(--sky-zenith) 30%, transparent);
+}
+
+@media (max-width: 767px) {
+  .topbar-links a:not(.btn) { display: none; }
+}

@@ -1,0 +1,64 @@
+/* ColdStart — design tokens. Day (default) and night themes. */
+
+:root {
+  /* Stratosphere palette */
+  --space-deep: #0b1e3f;
+  --electric: #1e5eff;
+  --horizon: #9fd4ff;
+  --cloud: #f4f9ff;
+  --flare: #ffc24b;
+
+  /* Derived surfaces */
+  --sky-zenith: #081633;
+  --sky-mid: #14377f;
+  --sky-low: #9fd4ff;
+  --ink: #0e2a47;
+
+  --card-bg: rgba(8, 22, 51, 0.78);
+  --card-border: rgba(159, 212, 255, 0.35);
+  --card-glow: rgba(30, 94, 255, 0.25);
+
+  --text-hi: var(--cloud);
+  --text-mid: rgba(244, 249, 255, 0.78);
+  --text-dim: rgba(244, 249, 255, 0.55);
+  --accent: var(--horizon);
+  --cta: var(--electric);
+  --cta-text: var(--cloud);
+
+  /* Type */
+  --font-display: "Archivo Var", system-ui, sans-serif;
+  --font-body: "Instrument Sans Var", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --size-h1: clamp(2.6rem, 6.5vw, 5.2rem);
+  --size-h2: clamp(1.8rem, 3.6vw, 2.9rem);
+  --size-body: clamp(1rem, 1.15vw, 1.15rem);
+  --size-eyebrow: 0.72rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout */
+  --module-w: min(640px, 86vw);
+  --perspective: 1200px;
+}
+
+[data-theme="night"] {
+  --space-deep: #050d1f;
+  --electric: #3d5afe;
+  --horizon: #7fa3cc;
+  --cloud: #e9eef7;
+  --flare: #c9d7f2;
+
+  --sky-zenith: #02060f;
+  --sky-mid: #0a1a3d;
+  --sky-low: #20406b;
+
+  --card-bg: rgba(2, 6, 15, 0.82);
+  --card-border: rgba(127, 163, 204, 0.3);
+  --card-glow: rgba(61, 90, 254, 0.18);
+
+  --text-hi: var(--cloud);
+  --text-mid: rgba(233, 238, 247, 0.75);
+  --text-dim: rgba(233, 238, 247, 0.5);
+}

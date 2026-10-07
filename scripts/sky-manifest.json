@@ -1,0 +1,40 @@
+{
+  "defaults": {
+    "duration": 10,
+    "resolution": "1080p",
+    "aspect_ratio": "16:9",
+    "image_size": "16:9"
+  },
+  "bands": [
+    {
+      "id": "day-1",
+      "image_prompt": "Aerial view from just above a vast sunlit cumulus cloud deck, seen from an airplane window altitude. Soft white clouds fill the lower half like a cotton floor. Above, a clear gradient sky from pale ice blue at the horizon to vivid electric blue overhead. Bright clean daylight, crisp atmosphere, photorealistic, serene and expansive. No ground visible, no aircraft, no birds, no text, no logos.",
+      "video_prompt": "Static locked camera floating just above a sunlit cumulus cloud deck. The clouds drift slowly and uniformly toward screen-left at a calm constant pace, gently billowing. The sky gradient stays fixed: pale ice blue glow at the horizon rising to vivid electric blue overhead. Consistent bright daylight exposure throughout, no camera movement, no subject, no birds, no aircraft, no text or logos. Seamless ambient loop, photorealistic, serene."
+    },
+    {
+      "id": "day-2",
+      "image_prompt": "Mid-stratosphere sky scene at high altitude. Thin translucent cirrus cloud wisps stretch horizontally across the frame. The sky is a deep saturated blue gradient, brighter electric blue near the bottom fading to deep navy blue at the top. A faint soft glow of light blue haze along the lower edge. Vast, minimal, photorealistic, tranquil. No ground, no horizon line objects, no sun disc, no text, no logos.",
+      "video_prompt": "Static locked camera in the mid-stratosphere. Thin translucent cirrus wisps drift slowly and uniformly toward screen-left, subtly stretching and thinning. Deep saturated blue gradient sky, electric blue low fading to deep navy overhead, with a faint pale blue haze glowing along the bottom edge. Constant exposure, no camera movement, no subject, no text or logos. Seamless ambient loop, photorealistic, calm and vast."
+    },
+    {
+      "id": "day-3",
+      "image_prompt": "View from near space at the edge of the stratosphere. The earth's horizon curves gently across the lower third with a thin glowing band of ice blue and white atmosphere. Above, the sky deepens from dark navy blue to almost black with a few faint stars. A warm golden sun flare glows softly at the right edge of the horizon band. Majestic, photorealistic, awe-inspiring. No spacecraft, no text, no logos.",
+      "video_prompt": "Static locked camera at the edge of space. The earth's curved horizon glows along the lower third, a thin ice-blue atmospheric band over the curve, drifting cloud textures far below moving very slowly screen-left. Above, near-black deep navy sky with faint stars subtly twinkling. A warm golden sun flare pulses very gently at the right edge of the horizon. Constant exposure, no camera movement, no spacecraft, no text or logos. Seamless ambient loop, photorealistic, majestic and still."
+    },
+    {
+      "id": "night-1",
+      "image_prompt": "Aerial view from just above a moonlit cloud deck at night. Soft silver-blue clouds fill the lower half, lit gently from above by moonlight. The sky above is a very dark indigo blue gradient with subtle depth, a few faint stars high up. Quiet, discreet, cinematic, photorealistic. No moon disc visible, no ground, no aircraft, no text, no logos.",
+      "video_prompt": "Static locked camera floating just above a moonlit cloud deck at night. Silver-blue clouds drift slowly and uniformly toward screen-left, gently billowing in soft moonlight. Very dark indigo sky above with faint stars. Constant low-light exposure, no camera movement, no moon disc, no subject, no text or logos. Seamless ambient loop, photorealistic, quiet and discreet."
+    },
+    {
+      "id": "night-2",
+      "image_prompt": "Night stratosphere at high altitude. Deep dark blue sky gradient from midnight blue low to near-black overhead, scattered with fine stars. A subtle faint aurora ribbon of cool teal-blue light arcs softly across the middle distance. Thin dark cloud wisps low in the frame. Minimal, cinematic, photorealistic. No ground, no text, no logos.",
+      "video_prompt": "Static locked camera in the night stratosphere. A faint cool teal-blue aurora ribbon undulates very slowly across the middle of the frame, glowing softly. Fine stars twinkle subtly in a near-black deep blue sky. Thin dark cloud wisps at the bottom drift slowly screen-left. Constant exposure, no camera movement, no subject, no text or logos. Seamless ambient loop, photorealistic, calm and mysterious."
+    },
+    {
+      "id": "night-3",
+      "image_prompt": "View from near space at night. The earth's dark curved horizon crosses the lower third, traced by a thin glowing band of deep blue atmosphere and scattered warm city lights glittering on the surface far below. Above, a dense starfield in a near-black sky. Cinematic, photorealistic, vast and silent. No spacecraft, no moon, no text, no logos.",
+      "video_prompt": "Static locked camera at the edge of space at night. The earth's dark curved horizon glows with a thin deep-blue atmospheric band, warm city lights glittering and twinkling softly on the surface far below. A dense starfield above twinkles subtly in near-black sky. Constant exposure, no camera movement, no spacecraft, no text or logos. Seamless ambient loop, photorealistic, vast and silent."
+    }
+  ]
+}

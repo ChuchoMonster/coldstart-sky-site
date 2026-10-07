@@ -1,0 +1,133 @@
+/* ColdStart — landing (end-of-journey contact) */
+
+.landing {
+  position: relative;
+  z-index: 5;
+  background: linear-gradient(to bottom, transparent 0%, var(--cloud) 18vh, var(--cloud) 100%);
+  color: var(--ink);
+  padding: 28vh clamp(1.4rem, 6vw, 4rem) 6rem;
+}
+
+.landing-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.landing .eyebrow { color: var(--electric); }
+.landing h2 {
+  color: var(--ink);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  margin: 0.8rem 0 1rem;
+}
+.landing > .landing-inner > p { color: rgba(14, 42, 71, 0.78); }
+
+.landing-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  margin-top: 3.5rem;
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .landing-grid { grid-template-columns: 1fr; }
+}
+
+.cal-shell {
+  min-height: 540px;
+  border-radius: 18px;
+  border: 1px solid rgba(14, 42, 71, 0.12);
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.cal-shell .cal-fallback {
+  text-align: center;
+  padding: 2rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-form .form-heading {
+  font-family: var(--font-display);
+  font-stretch: 110%;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+.contact-form label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(14, 42, 71, 0.6);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid rgba(14, 42, 71, 0.18);
+  border-radius: 10px;
+  padding: 0.8em 1em;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid var(--electric);
+  outline-offset: 0;
+  border-color: transparent;
+}
+.contact-form textarea { min-height: 120px; resize: vertical; }
+.contact-form .btn { align-self: flex-start; }
+.hidden-field { display: none; }
+
+.landing-footer {
+  margin-top: 6rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(14, 42, 71, 0.12);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: rgba(14, 42, 71, 0.55);
+}
+.landing-footer a { color: rgba(14, 42, 71, 0.75); }
+
+/* Night theme landing stays dark */
+[data-theme="night"] .landing {
+  background: linear-gradient(to bottom, transparent 0%, var(--sky-zenith) 18vh, #01040a 100%);
+  color: var(--cloud);
+}
+[data-theme="night"] .landing h2 { color: var(--cloud); }
+[data-theme="night"] .landing > .landing-inner > p { color: var(--text-mid); }
+[data-theme="night"] .landing .eyebrow { color: var(--horizon); }
+[data-theme="night"] .contact-form .form-heading { color: var(--cloud); }
+[data-theme="night"] .contact-form label { color: var(--text-dim); }
+[data-theme="night"] .contact-form input,
+[data-theme="night"] .contact-form textarea {
+  background: rgba(233, 238, 247, 0.06);
+  border-color: var(--card-border);
+  color: var(--cloud);
+}
+[data-theme="night"] .cal-shell {
+  background: rgba(233, 238, 247, 0.04);
+  border-color: var(--card-border);
+}
+[data-theme="night"] .landing-footer {
+  border-top-color: rgba(233, 238, 247, 0.12);
+  color: var(--text-dim);
+}
+[data-theme="night"] .landing-footer a { color: var(--text-mid); }
