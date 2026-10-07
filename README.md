@@ -1,5 +1,7 @@
 # ColdStart: scroll-flight landing page (day + night)
 
+![tests](https://github.com/ChuchoMonster/coldstart-sky-site/actions/workflows/tests.yml/badge.svg)
+
 A static, scroll-driven landing page for ColdStart, a small AI-systems consultancy. As you scroll, the camera "flies" up through the sky and content cards approach from the distance, hold long enough to read, then pass the camera. Two versions share one engine:
 
 - `site/index.html`: day flight (general audience)
@@ -45,6 +47,13 @@ cp .env.example .env    # add your key
 python3 scripts/generate-sky.py
 ./scripts/process-video.sh   # needs ffmpeg/ffprobe with libx264 + libvpx-vp9
 ```
+
+## Tests
+
+- Run `python3 -m unittest discover -s tests -v` from the repo root. Standard library only, nothing to install.
+- `generate-sky.py` is tested with the kie.ai API mocked; `process-video.sh` runs against fake `ffmpeg`/`ffprobe`, so no credits are spent and no video is encoded.
+- Static checks on `site/`: each page's `data-sky` config matches its sky videos, every local link and asset resolves, video files stay within budget, and module copy stays inside the word limits.
+- CI runs the same command on every push and pull request (`.github/workflows/tests.yml`).
 
 ## Environment variables
 
